@@ -1,5 +1,6 @@
 require 'rubygems'
 require 'iconv'
+require 'nokogiri'
 
 class Contacts
   class Hotmail < Base
