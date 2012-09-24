@@ -9,6 +9,9 @@ Gem::Specification.new do |s|
   s.files       = ["lib/contacts_cn_19.rb"]
   s.files       += Dir.glob('lib/**/*.rb')
   s.require_paths = ["lib"]
-  s.homepage    =
-    'https://github.com/wxluckly/contacts_cn_19'
+  s.homepage    = 'https://github.com/wxluckly/contacts_cn_19'
+  s.add_dependency 'iconv'
+  s.add_dependency 'gdata_19'
+  s.add_dependency 'hpricot'
+  s.add_dependency 'nokogiri'
 end  
