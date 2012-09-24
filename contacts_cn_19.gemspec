@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'contacts_cn_19'
-  s.version     = '1.0.0'
+  s.version     = '1.0.1'
   s.date        = '2012-09-24'
   s.summary     = "contacts_cn_19"
   s.description = "adjust some code ,make 'contacts_cn' fit ruby 1.9"
