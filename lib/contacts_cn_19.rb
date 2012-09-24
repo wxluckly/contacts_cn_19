@@ -1,9 +1,6 @@
 $:.unshift(File.dirname(__FILE__)+"/contacts/")
 
 require 'rubygems'
-unless Object.const_defined?('ActiveSupport')
-  require 'activesupport'
-end
 require 'base'
 require 'gmail'
 require 'hotmail'
@@ -15,4 +12,3 @@ require 'sina'
 require 'sohu'
 require 'json_picker'
 require 'hash_ext'
-require 'iconv'

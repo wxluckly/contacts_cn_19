@@ -1,6 +1,5 @@
 require 'rubygems'
-require 'fastercsv'
-require 'nokogiri'
+require 'iconv'
 
 class Contacts
   class Hotmail < Base
@@ -61,11 +60,11 @@ class Contacts
       if @contacts.nil? && connected?
         url = URI.parse(contact_list_url)
         data, resp, cookies, forward = get(get_contact_list_url, @cookies )
-        data = Iconv.new('UTF-8//IGNORE', 'UTF-8').iconv(data)
+        data = Iconv.conv('UTF-8//IGNORE','UTF-8',data)
         data.gsub!(";",",")
         data.gsub!("'","")
-        # data = data.gsub(/[\x80-\xff]/,"")
-
+        # data = data.gsub(/[\x80-\xff]/n,"")
+        
         @contacts = CSV.parse(data, {:headers => true, :col_sep => ','}).map do |row|
           name = ""
           name = row["First Name"] if !row["First Name"].nil?
