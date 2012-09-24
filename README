@@ -1,6 +1,6 @@
 == contacts_cn-joey
 
-gdata >= 1.1.3
+gdata_19 >= 1.1.3
 
 hpricot     #do not use anymore,use ruby's
 
