@@ -65,7 +65,12 @@ class Contacts
         data = data.encode('UTF-8')
         data.gsub!(";",",")
         data.gsub!("'","")
-        
+        if data =~ /^<html><head><title>Object\s+moved<\/title><\/head>/
+          url = data.scan(/<a\s+href=[\"\'](.*)[\'\"]/).flatten.first
+          data, resp, cookies, forward = get(url, @cookies )
+          data.force_encoding('gbk')
+          data = data.encode('UTF-8')
+        end
         @contacts = CSV.parse(data, {:headers => true, :col_sep => ','}).map do |row|
           name = ""
           name = row["First Name"] if !row["First Name"].nil?
