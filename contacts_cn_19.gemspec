@@ -12,5 +12,4 @@ Gem::Specification.new do |s|
   s.homepage    = 'https://github.com/wxluckly/contacts_cn_19'
   s.add_dependency 'gdata_19'
   s.add_dependency 'hpricot'
-  s.add_dependency 'nokogiri'
 end  
