@@ -1,9 +1,9 @@
 Gem::Specification.new do |s|
   s.name        = 'contacts_cn_19'
-  s.version     = '1.0.2'
-  s.date        = '2012-09-24'
+  s.version     = '1.1.2'
+  s.date        = '2013-03-05'
   s.summary     = "contacts_cn_19"
-  s.description = "adjust some code ,make 'contacts_cn' fit ruby 1.9"
+  s.description = "remove useless iconv"
   s.authors     = [""]
   s.email       = 'wxluckly@gmail.com'
   s.files       = ["lib/contacts_cn_19.rb"]
