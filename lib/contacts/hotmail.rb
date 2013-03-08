@@ -32,10 +32,6 @@ class Contacts
         data, resp, cookies, forward, old_url = get(forward, cookies, old_url) + [forward]
       end
 
-      p '-'*50
-      p data
-      p '-'*50
-
       if data.index("The e-mail address or password is incorrect")
         raise AuthenticationError, "Username and password do not match"
       elsif data != ""
@@ -64,16 +60,36 @@ class Contacts
       if @contacts.nil? && connected?
         url = URI.parse(contact_list_url)
         data, resp, cookies, forward = get(get_contact_list_url, @cookies )
+        p '-----before code'
+        p data
+        p '-'*50
+
         data.force_encoding('gbk')
         data = data.encode('UTF-8')
         data.gsub!(";",",")
         data.gsub!("'","")
+        
+        p '-----after code'
+        p data
+        p '-'*50
+
+
         if data =~ /^<html><head><title>Object\s+moved<\/title><\/head>/
           url = data.scan(/<a\s+href=[\"\'](.*)[\'\"]/).flatten.first
           data, resp, cookies, forward = get(url, @cookies )
+          p '------before code second'
+          p data
+          p '-'*50
+
           data.force_encoding('gbk')
           data = data.encode('UTF-8')
+
+          p '------after code second'
+          p data
+          p '-'*50
+
         end
+
         @contacts = CSV.parse(data, {:headers => true, :col_sep => ','}).map do |row|
           name = ""
           name = row["First Name"] if !row["First Name"].nil?
