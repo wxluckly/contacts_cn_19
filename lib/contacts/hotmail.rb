@@ -32,6 +32,10 @@ class Contacts
         data, resp, cookies, forward, old_url = get(forward, cookies, old_url) + [forward]
       end
 
+      p '-'*50
+      p data
+      p '-'*50
+
       if data.index("The e-mail address or password is incorrect")
         raise AuthenticationError, "Username and password do not match"
       elsif data != ""
